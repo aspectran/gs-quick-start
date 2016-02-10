@@ -13,7 +13,7 @@
 		<setting name="transletNamePattern" value="/ga-quick-start/*"/>
 	</settings>
 	
-	<bean id="simplestAction" class="hello.SimplestAction" scope="singleton">
+	<bean id="*" class="hello.SimplestAction" scope="singleton">
 		<description>
 			Action Method를 가지고 있는 singleton 스코프를 가지는 Bean을 정의합니다.
 		</description>
@@ -36,7 +36,7 @@
 		<joinpoint scope="translet">
 			<pointcut>
 				target: {
-					+: "/ga-quick-start/*@simplestAction^helloWorld"
+					+: "/ga-quick-start/*@class:hello.SimplestAction^helloWorld"
 				}
 			</pointcut>
 		</joinpoint>
@@ -70,7 +70,7 @@
 			텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
-			<action bean="simplestAction" method="helloWorld"/>
+			<action bean="class:hello.SimplestAction" method="helloWorld"/>
 		</transform>
 	</translet>
 	
