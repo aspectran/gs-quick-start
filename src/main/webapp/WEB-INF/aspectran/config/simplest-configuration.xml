@@ -12,7 +12,45 @@
 	<settings>
 		<setting name="transletNamePattern" value="/ga-quick-start/*"/>
 	</settings>
-	
+
+	<bean id="jspViewDispatcher" class="com.aspectran.web.activity.response.view.JspViewDispatcher"/>
+
+	<aspect id="defaultRequestRule">
+		<joinpoint scope="request"/>
+		<settings>
+			<setting name="characterEncoding" value="utf-8"/>
+		</settings>
+	</aspect>
+
+	<aspect id="defaultResponseRule1">
+		<joinpoint scope="response">
+			<pointcut>
+				target: {
+					+: "/ga-quick-start/**/*"
+					-: "/ga-quick-start/jsp/**/*"
+				}
+			</pointcut>
+		</joinpoint>
+		<settings>
+			<setting name="characterEncoding" value="utf-8"/>
+			<setting name="contentEncoding" value="gzip"/>
+		</settings>
+	</aspect>
+
+	<aspect id="defaultResponseRule2">
+		<joinpoint scope="response">
+			<pointcut>
+				target: {
+					+: "/ga-quick-start/jsp/**/*"
+				}
+			</pointcut>
+		</joinpoint>
+		<settings>
+			<setting name="characterEncoding" value="utf-8"/>
+			<setting name="viewDispatcher" value="jspViewDispatcher"/>
+		</settings>
+	</aspect>
+
 	<bean id="*" class="hello.SimplestAction" scope="singleton">
 		<description>
 			Action Method를 가지고 있는 singleton 스코프를 가지는 Bean을 정의합니다.
@@ -50,24 +88,19 @@
 		</advice>
 	</aspect>
 
-	<aspect id="defaultRequestRule">
-		<joinpoint scope="request"/>
-		<settings>
-			<setting name="characterEncoding" value="utf-8"/>
-		</settings>
-	</aspect>
-
-	<aspect id="defaultResponseRule">
-		<joinpoint scope="response"/>
-		<settings>
-			<setting name="characterEncoding" value="utf-8"/>
-		</settings>
-	</aspect>
+	<translet name="jsp/@{targetName}" method="ALL">
+		<description>
+			"/ga-quick-start/jsp/"로 시작하는 요청 URI에서 Dispatch Target Name을 분석해서
+			해당하는 JSP 파일로 포워딩을 합니다
+		</description>
+		<dispatch name="/WEB-INF/jsp/@{targetName}.jsp" contentType="text/html"/>
+	</translet>
 
 	<translet name="helloWorld">
 		<description>
-			simplestAction 빈에서 helloWorld 메쏘드를 실행해서 "Hello, World."라는 문구를
-			텍스트 형식의 컨텐츠로 응답합니다.
+			요청 URI가 "/ga-quick-start/helloWorld"이면,
+			simplestAction 빈에서 helloWorld 메쏘드를 실행합니다.
+			helloWorld 메쏘드가 반환하는 "Hello, World." 문자열을 텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
 			<action bean="class:hello.SimplestAction" method="helloWorld"/>

@@ -11,25 +11,25 @@
 	<context-param>
 		<param-name>aspectran:config</param-name>
 		<param-value>
-		context: {
-			root: "/WEB-INF/aspectran/config/simplest-configuration.xml"
-			encoding: "utf-8"
-			resources: [
-				"/WEB-INF/aspectran/config"
-			]
-			hybridLoading: false
-			autoReloading: {
-				reloadMethod: hard
-				observationInterval: 5
-				startup: true
+			context: {
+				root: "/WEB-INF/aspectran/config/simplest-configuration.xml"
+				encoding: "utf-8"
+				resources: [
+					"/WEB-INF/aspectran/config"
+				]
+				hybridLoading: false
+				autoReloading: {
+					reloadMethod: hard
+					observationInterval: 5
+					startup: true
+				}
 			}
-		}
-		scheduler: {
-			startDelaySeconds: 10
-			waitOnShutdown: true
-			startup: false
-		}
-    </param-value>
+			scheduler: {
+				startDelaySeconds: 10
+				waitOnShutdown: true
+				startup: false
+			}
+		</param-value>
 	</context-param>
 	<listener>
 		<listener-class>com.aspectran.web.startup.listener.AspectranServiceListener</listener-class>
@@ -41,7 +41,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>aspectran-activity</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/ga-quick-start/*</url-pattern>
 	</servlet-mapping>
 	<!-- 실제 운영환경에서는 스케쥴러의 Job에 직접 접근할 수 없도록 서블릿매핑을 제거하도록 합니다. -->
 	<servlet-mapping>
