@@ -51,7 +51,7 @@
 		</settings>
 	</aspect>
 
-	<bean id="*" class="hello.SimplestAction" scope="singleton">
+	<bean class="hello.SimplestAction" scope="singleton">
 		<description>
 			Action Method를 가지고 있는 singleton 스코프를 가지는 Bean을 정의합니다.
 		</description>
@@ -64,7 +64,7 @@
 		</description>
 	</bean>
 
-	<aspect id="simplestAdvice">
+	<aspect id="simplestAspect">
 		<description>
 			요청 URI가 "/ga-quick-start/"로 시작하고,
 			simplestAction Bean의 helloWorld 메쏘드를 실행하는 Translet이 발견되면,
@@ -88,12 +88,12 @@
 		</advice>
 	</aspect>
 
-	<translet name="jsp/@{targetName}" method="ALL">
+	<translet name="jsp/${targetName}" method="ALL">
 		<description>
 			"/ga-quick-start/jsp/"로 시작하는 요청 URI에서 Dispatch Target Name을 분석해서
 			해당하는 JSP 파일로 포워딩을 합니다
 		</description>
-		<dispatch name="/WEB-INF/jsp/@{targetName}.jsp" contentType="text/html"/>
+		<dispatch name="/WEB-INF/jsp/${targetName}.jsp" contentType="text/html"/>
 	</translet>
 
 	<translet name="helloWorld">
@@ -103,7 +103,7 @@
 			helloWorld 메쏘드가 반환하는 "Hello, World." 문자열을 텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
-			<action bean="class:hello.SimplestAction" method="helloWorld"/>
+			<action id="hello" bean="class:hello.SimplestAction" method="helloWorld"/>
 		</transform>
 	</translet>
 	

@@ -20,7 +20,9 @@ public class SimplestAdvice {
 		return msg;
 	}
 	
-	public String goodbye() {
+	public String goodbye(Translet translet) {
+		log.info("activityDataMap " + translet.getActivityDataMap(true));
+
 		String msg = "Goodbye!";
 		
 		log.info(msg);
