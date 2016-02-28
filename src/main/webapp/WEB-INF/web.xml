@@ -29,6 +29,9 @@
 				waitOnShutdown: true
 				startup: false
 			}
+			web: {
+				urlDecoding: "utf-8"
+			}
 		</param-value>
 	</context-param>
 	<listener>
