@@ -30,7 +30,7 @@
 				startup: false
 			}
 			web: {
-				urlDecoding: "utf-8"
+				uriDecoding: "utf-8"
 			}
 		</param-value>
 	</context-param>
