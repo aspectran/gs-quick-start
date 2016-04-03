@@ -21,7 +21,7 @@
 				autoReloading: {
 					reloadMethod: hard
 					observationInterval: 5
-					startup: true
+					startup: false
 				}
 			}
 			scheduler: {
