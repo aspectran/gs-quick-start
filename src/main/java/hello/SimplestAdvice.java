@@ -10,7 +10,7 @@ public class SimplestAdvice {
 	
 	private final Log log = LogFactory.getLog(SimplestAdvice.class);
 
-	public String wellcome(Translet translet) {
+	public String welcome(Translet translet) {
 		HttpServletRequest req = translet.getRequestAdaptee();
 		String ip = req.getRemoteAddr();
 		String msg = "Welcome to Aspectran! (" + ip + ")";
