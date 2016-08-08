@@ -40,17 +40,17 @@
 		<listener-class>com.aspectran.web.startup.listener.AspectranServiceListener</listener-class>
 	</listener>
 	<servlet>
-		<servlet-name>aspectran-activity</servlet-name>
+		<servlet-name>web-activity-servlet</servlet-name>
 		<servlet-class>com.aspectran.web.startup.servlet.WebActivityServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>aspectran-activity</servlet-name>
-		<url-pattern>/ga-quick-start/*</url-pattern>
+		<servlet-name>web-activity-servlet</servlet-name>
+		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	<!-- 실제 운영환경에서는 스케쥴러의 Job에 직접 접근할 수 없도록 서블릿매핑을 제거하도록 합니다. -->
 	<servlet-mapping>
-		<servlet-name>aspectran-activity</servlet-name>
+		<servlet-name>web-activity-servlet</servlet-name>
 		<url-pattern>/scheduler/*</url-pattern>
 	</servlet-mapping>
 </web-app>
