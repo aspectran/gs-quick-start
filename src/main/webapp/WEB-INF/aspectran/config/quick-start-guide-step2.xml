@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-2.0.dtd">
+
+<aspectran>
+	
+	<description>
+		=== Quick Start Guide - Step 2 ===
+		Quick Start Guide를 위한 Aspectran Configuration의 일부로써,
+		"Hello, World!" 문자열을 출력하는 설정 내용을 담고 있습니다.
+		Aspectran은 AOP 방식의 프로그래밍을 지원합니다.
+		"Hello World" 문자열을 반환하는 helloWorld Method 실행 전 후로
+		특정 Method를 실행하는 기능이 주입되도록 설정되어 있습니다.
+	</description>
+
+	<translet name="step2/helloWorld">
+		<description>
+			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+			
+			요청 URI가 "/ga-quick-start/helloWorld"이면
+			simplestAction Bean에서 helloWorld Method를 실행합니다.
+			helloWorld Method가 반환하는 "Hello, World!" 문자열을
+			텍스트 형식의 컨텐츠로 가공해서 응답합니다.
+		</description>
+		<transform type="transform/text" contentType="text/plain">
+			<action id="hello" bean="hello.SimplestAction" method="helloWorld"/>
+		</transform>
+	</translet>
+
+</aspectran>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-2.0.dtd">
+
+<aspectran>
+	
+	<description>
+		=== Quick Start Guide - Step 1 ===
+		Quick Start Guide를 위한 Aspectran Configuration의 일부로써,
+		"Hello, World!" 문자열을 출력하는 설정 내용을 담고 있습니다.
+		이 방식은 "Hello, World!" 문자열을 출력하는 가장 단순한 방식입니다.
+		Bean의 Method를 실행하지도 않으며, JSP와 같은 View도 필요하지 않고,
+		심지어 자바 소스코드를 작성하지도 않습니다.
+	</description>
+
+	<translet name="step1/helloWorld">
+		<description>
+			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+			요청 URI가 "/ga-quick-start/direct/helloWorld"이면
+			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 가공해서 응답합니다.
+		</description>
+		<transform type="transform/text" contentType="text/plain">
+			<template>Hello, World!</template>
+		</transform>
+	</translet>
+
+</aspectran>

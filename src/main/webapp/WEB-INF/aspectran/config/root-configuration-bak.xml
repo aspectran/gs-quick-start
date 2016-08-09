@@ -6,7 +6,7 @@
 	
 	<description>
 		Quick Start Guide를 위한 Aspectran Configuration입니다.
-		가장 처음 불려지는 설정 파일로써, 공통 설정 사항을 담고 있습니다.
+		몇 가지 다른 방법으로 "Hello, World!" 문자열을 출력하는 웹 응용프로그램입니다.
 	</description>
 
 	<!-- 기본 설정 -->
@@ -36,18 +36,6 @@
 		</property>
 	</bean>
 
-	<bean id="simplestAdvice" class="hello.SimplestAdvice">
-		<description>
-			hellowWorld Method의 실행 전 후에 실행되는 Method를 가지고 있는 Advice Bean을 정의합니다.
-		</description>
-	</bean>
-
-	<bean id="*" scan="hello.**.*Action">
-		<description>
-			모든 Action Bean을 찾아서 등록합니다.
-		</description>
-	</bean>
-
 	<aspect id="defaultRequestRule">
 		<description>
 			모든 요청에 대하여 기본 설정을 적용합니다.
@@ -72,6 +60,18 @@
 		</settings>
 	</aspect>
 
+	<bean id="simplestAction" class="hello.SimplestAction">
+		<description>
+			"Hello World"를 반환하는 hellowWorld Method를 가지고 있는 Action Bean을 정의합니다.
+		</description>
+	</bean>
+
+	<bean id="simplestAdvice" class="hello.SimplestAdvice">
+		<description>
+			hellowWorld Method의 실행 전 후에 실행되는 Method를 가지고 있는 Advice Bean을 정의합니다.
+		</description>
+	</bean>
+
 	<aspect id="simplestAspect">
 		<description>
 			"Hello World"만 출력하기에는 심심한 면이 없지 않아서,
@@ -84,7 +84,7 @@
 		<joinpoint scope="translet">
 			<pointcut>
 				target: {
-					+: "/ga-quick-start/*@hello.SimplestAction^helloWorld"
+					+: "/ga-quick-start/*@simplestAction^helloWorld"
 				}
 			</pointcut>
 		</joinpoint>
@@ -98,8 +98,47 @@
 		</advice>
 	</aspect>
 
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step1.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step2.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step3.xml"/>
+	<translet name="simple/helloWorld">
+		<description>
+			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+			이 방식은 "Hello, World!" 문자열을 출력하는 가장 단순한 방식입니다.
+			Bean의 Method를 실행하지도 않으며, JSP와 같은 View도 필요하지 않는 것이 특징입니다.
+			요청 URI가 "/ga-quick-start/direct/helloWorld"이면
+			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 가공해서 응답합니다.
+		</description>
+		<transform type="transform/text" contentType="text/plain">
+			<template>Hello, World!</template>
+		</transform>
+	</translet>
+
+	<translet name="helloWorld">
+		<description>
+			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+
+			요청 URI가 "/ga-quick-start/helloWorld"이면
+			simplestAction Bean에서 helloWorld Method를 실행합니다.
+			helloWorld Method가 반환하는 "Hello, World!" 문자열을
+			텍스트 형식의 컨텐츠로 가공해서 응답합니다.
+		</description>
+		<transform type="transform/text" contentType="text/plain">
+			<action id="hello" bean="simplestAction" method="helloWorld"/>
+		</transform>
+	</translet>
+
+	<translet name="front/${targetName}" method="ALL">
+		<description>
+			JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+			요청 URI가 "/ga-quick-start/front/helloWorld"이면
+			"/WEB-INF/jsp/helloWorld.jsp" 파일로 포워딩 합니다.
+			"Hello, World!" 문자열은 Request Attributes에 담아서 보내고,
+			JSP에서는 "hello.message" 키로 값을 참조해서 화면에 출력하는 것이 특징입니다.
+		</description>
+		<echo id="hello">
+			<attribute>
+				<item name="message">Hello, World!</item>
+			</attribute>
+		</echo>
+		<dispatch name="${targetName}"/>
+	</translet>
 
 </aspectran>
