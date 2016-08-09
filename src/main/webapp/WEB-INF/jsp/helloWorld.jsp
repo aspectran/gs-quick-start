@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
 <head>
@@ -6,6 +6,6 @@
     <title>ga-quick-start</title>
 </head>
 <body>
-    <h2>Hello, World!</h2>
+    <h2>${hello.message}</h2>
 </body>
-</html>
+</html> 
