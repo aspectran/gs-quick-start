@@ -27,39 +27,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.6.1</version>
-				<configuration>
-					<excludeDefaultDirectories>true</excludeDefaultDirectories>
-					<filesets>
-						<fileset>
-							<directory>target/</directory>
-						</fileset>
-						<fileset>
-							<directory>src/main/webapp/WEB-INF/lib</directory>
-							<includes>
-								<include>*.jar</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>src/main/webapp/WEB-INF/lib</outputDirectory>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
