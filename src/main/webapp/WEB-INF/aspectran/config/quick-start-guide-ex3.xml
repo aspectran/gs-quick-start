@@ -11,7 +11,7 @@
 		JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력합니다.
 	</description>
 
-	<translet name="step3/${targetName}" method="ALL">
+	<translet name="ex3/${targetName}" method="ALL">
 		<description>
 			JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
 			요청 URI가 "/ga-quick-start/step3/helloWorld"이면

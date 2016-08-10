@@ -6,7 +6,7 @@
 	
 	<description>
 		Quick Start Guide를 위한 Aspectran Configuration입니다.
-		가장 처음 불려지는 설정 파일로써, 공통 설정 사항을 담고 있습니다.
+		가장 처음 불려지는 설정 파일로써, 공통 설정 구성 정보를 담고 있습니다.
 	</description>
 
 	<!-- 기본 설정 -->
@@ -18,7 +18,7 @@
 	<!-- 다국어 처리를 위한 메시지 Bean을 정의합니다.  -->
 	<bean id="messageSource" class="com.aspectran.core.context.message.ResourceBundleMessageSource">
 		<property>
-			<item name="basename">locale.Messages</item>
+			<item name="basename">locale.messages</item>
 		</property>
 	</bean>
 
@@ -78,8 +78,8 @@
 			내부적으로 특정 Method를 실행하는 기능을 주입시켜 보겠습니다.
 			요청 URI가 "/ga-quick-start/"로 시작하고,
 			simplestAction Bean의 helloWorld Method를 실행하는 Translet이 발견되면,
-			해당 Translet의 실행 전에는 simplestAdvice Bean의 welcome 메쏘드를 실행하고,
-			해당 Translet의 실행 후에는 simplestAdvice Bean의 goodbye 메쏘드를 실행합니다.
+			해당 Translet의 실행 전에는 simplestAdvice Bean의 welcome Method를 실행하고,
+			해당 Translet의 실행 후에는 simplestAdvice Bean의 goodbye Method를 실행합니다.
 		</description>
 		<joinpoint scope="translet">
 			<pointcut>
@@ -98,8 +98,8 @@
 		</advice>
 	</aspect>
 
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step1.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step2.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-step3.xml"/>
+	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex1.xml"/>
+	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex2.xml"/>
+	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex3.xml"/>
 
 </aspectran>

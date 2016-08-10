@@ -10,10 +10,10 @@
 		"Hello, World!" 문자열을 출력하는 설정 내용을 담고 있습니다.
 		이 방식은 "Hello, World!" 문자열을 출력하는 가장 단순한 방식입니다.
 		Bean의 Method를 실행하지도 않으며, JSP와 같은 View도 필요하지 않고,
-		심지어 자바 소스코드를 작성하지도 않습니다.
+		심지어 자바 소스코드를 작성하지도 않았습니다.
 	</description>
 
-	<translet name="step1/helloWorld">
+	<translet name="ex1/helloWorld">
 		<description>
 			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
 			요청 URI가 "/ga-quick-start/direct/helloWorld"이면

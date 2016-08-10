@@ -13,7 +13,7 @@
 		특정 Method를 실행하는 기능이 주입되도록 설정되어 있습니다.
 	</description>
 
-	<translet name="step2/helloWorld">
+	<translet name="ex2/helloWorld">
 		<description>
 			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
 			
