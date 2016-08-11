@@ -4,7 +4,7 @@
 	<groupId>com.aspectran</groupId>
 	<artifactId>ga-quick-start</artifactId>
 	<packaging>war</packaging>
-	<version>0.1.0</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<url>https://github.com/aspectran-guides/ga-quick-start.git</url>
 	<contributors>
 		<contributor>
@@ -28,6 +28,39 @@
 					<!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
 					<useIncrementalCompilation>false</useIncrementalCompilation>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<excludeDefaultDirectories>true</excludeDefaultDirectories>
+					<filesets>
+						<fileset>
+							<directory>target/</directory>
+						</fileset>
+						<fileset>
+							<directory>src/main/webapp/WEB-INF/lib</directory>
+							<includes>
+								<include>*.jar</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/webapp/WEB-INF/lib</outputDirectory>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
