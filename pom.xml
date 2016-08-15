@@ -68,7 +68,7 @@
 				<version>2.2</version>
 				<configuration>
 					<url>http://backend.aspectran.com/manager/text</url>
-					<server>tomcat-server</server>
+					<server>backend-tomcat-server</server>
 					<path>/ga-quick-start</path>
 				</configuration>
 			</plugin>
