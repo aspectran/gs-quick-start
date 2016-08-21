@@ -23,7 +23,7 @@
 			텍스트 형식의 컨텐츠로 가공해서 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
-			<action id="hello" bean="hello.SimplestAction" method="helloWorld"/>
+			<action id="hello" bean="sample.SimplestAction" method="helloWorld"/>
 		</transform>
 	</translet>
 

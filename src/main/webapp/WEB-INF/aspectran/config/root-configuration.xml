@@ -23,7 +23,11 @@
 	</bean>
 
 	<!-- 로케일을 결정하기 위해 세션을 이용합니다. -->
-	<bean id="localeResolver" class="com.aspectran.core.context.locale.SessionLocaleResolver"/>
+	<bean id="localeResolver" class="com.aspectran.core.context.locale.SessionLocaleResolver">
+		<properties>
+			<item name="defaultLocale" value="en" />
+		</properties>
+	</bean>
 
 	<!-- 로케일을 변경하기 위한 인터셉터 Bean을 정의합니다. -->
 	<bean id="localeChangeInterceptor" class="com.aspectran.core.context.locale.LocaleChangeInterceptor"/>
@@ -36,13 +40,13 @@
 		</properties>
 	</bean>
 
-	<bean id="simplestAdvice" class="hello.SimplestAdvice">
+	<bean id="simplestAdvice" class="sample.SimplestAdvice">
 		<description>
 			hellowWorld Method의 실행 전 후에 실행되는 Method를 가지고 있는 Advice Bean을 정의합니다.
 		</description>
 	</bean>
 
-	<bean id="*" scan="hello.**.*Action">
+	<bean id="*" scan="sample.**.*Action">
 		<description>
 			모든 Action Bean을 찾아서 등록합니다.
 		</description>
@@ -83,10 +87,10 @@
 		</description>
 		<joinpoint scope="translet">
 			<pointcut>
-				target: {
-					+: "/ga-quick-start/*@hello.SimplestAction^helloWorld"
-				}
-			</pointcut>
+                target: {
+                +: "/ga-quick-start/*@sample.SimplestAction^helloWorld"
+                }
+            </pointcut>
 		</joinpoint>
 		<advice bean="simplestAdvice">
 			<before>

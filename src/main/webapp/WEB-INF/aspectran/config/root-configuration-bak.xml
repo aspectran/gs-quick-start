@@ -60,13 +60,13 @@
 		</settings>
 	</aspect>
 
-	<bean id="simplestAction" class="hello.SimplestAction">
+	<bean id="simplestAction" class="sample.SimplestAction">
 		<description>
 			"Hello World"를 반환하는 hellowWorld Method를 가지고 있는 Action Bean을 정의합니다.
 		</description>
 	</bean>
 
-	<bean id="simplestAdvice" class="hello.SimplestAdvice">
+	<bean id="simplestAdvice" class="sample.SimplestAdvice">
 		<description>
 			hellowWorld Method의 실행 전 후에 실행되는 Method를 가지고 있는 Advice Bean을 정의합니다.
 		</description>
@@ -127,12 +127,12 @@
 
 	<translet name="front/${targetName}" method="ALL">
 		<description>
-			JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
-			요청 URI가 "/ga-quick-start/front/helloWorld"이면
-			"/WEB-INF/jsp/helloWorld.jsp" 파일로 포워딩 합니다.
-			"Hello, World!" 문자열은 Request Attributes에 담아서 보내고,
-			JSP에서는 "hello.message" 키로 값을 참조해서 화면에 출력하는 것이 특징입니다.
-		</description>
+            JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
+            요청 URI가 "/ga-quick-start/front/helloWorld"이면
+            "/WEB-INF/jsp/helloWorld.jsp" 파일로 포워딩 합니다.
+            "Hello, World!" 문자열은 Request Attributes에 담아서 보내고,
+            JSP에서는 "sample.message" 키로 값을 참조해서 화면에 출력하는 것이 특징입니다.
+        </description>
 		<echo id="hello">
 			<attributes>
 				<item name="message">Hello, World!</item>
