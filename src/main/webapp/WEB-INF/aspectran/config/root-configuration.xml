@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-2.dtd">
+		"http://aspectran.github.io/dtd/aspectran-3.dtd">
 
 <aspectran>
 	
@@ -33,7 +33,7 @@
 	<bean id="localeChangeInterceptor" class="com.aspectran.core.context.locale.LocaleChangeInterceptor"/>
 
 	<!-- JSP를 View로 사용하기 위해 JSP View Dispatcher를 정의합니다. -->
-	<bean id="jspViewDispatcher" class="com.aspectran.web.activity.response.view.JspViewDispatcher">
+	<bean id="jspViewDispatcher" class="com.aspectran.web.support.view.JspViewDispatcher">
 		<properties>
 			<item name="prefix" value="/WEB-INF/jsp/"/>
 			<item name="suffix" value=".jsp"/>
@@ -52,25 +52,15 @@
 		</description>
 	</bean>
 
-	<aspect id="defaultRequestRule">
+	<aspect id="trnasletSettings">
 		<description>
 			모든 요청에 대하여 기본 설정을 적용합니다.
 		</description>
-		<joinpoint scope="request"/>
+		<joinpoint type="translet"/>
 		<settings>
 			<setting name="characterEncoding" value="utf-8"/>
 			<setting name="localeResolver" value="localeResolver"/>
 			<setting name="localeChangeInterceptor" value="localeChangeInterceptor"/>
-		</settings>
-	</aspect>
-
-	<aspect id="defaultResponseRule">
-		<description>
-			모든 응답 처리에 대하여 기본 설정을 적용합니다.
-		</description>
-		<joinpoint scope="response"/>
-		<settings>
-			<setting name="characterEncoding" value="utf-8"/>
 			<setting name="contentEncoding" value="gzip"/>
 			<setting name="viewDispatcher" value="jspViewDispatcher"/>
 		</settings>
@@ -85,12 +75,10 @@
 			해당 Translet의 실행 전에는 simplestAdvice Bean의 welcome Method를 실행하고,
 			해당 Translet의 실행 후에는 simplestAdvice Bean의 goodbye Method를 실행합니다.
 		</description>
-		<joinpoint scope="translet">
-			<pointcut>
-                target: {
+		<joinpoint type="translet">
+			pointcut: {
                 +: "/ga-quick-start/*@sample.SimplestAction^helloWorld"
-                }
-            </pointcut>
+			}
 		</joinpoint>
 		<advice bean="simplestAdvice">
 			<before>
