@@ -23,14 +23,14 @@
 	</bean>
 
 	<!-- 로케일을 결정하기 위해 세션을 이용합니다. -->
-	<bean id="localeResolver" class="com.aspectran.core.context.locale.SessionLocaleResolver">
+	<bean id="localeResolver" class="com.aspectran.core.context.i18n.SessionLocaleResolver">
 		<properties>
 			<item name="defaultLocale" value="en" />
 		</properties>
 	</bean>
 
 	<!-- 로케일을 변경하기 위한 인터셉터 Bean을 정의합니다. -->
-	<bean id="localeChangeInterceptor" class="com.aspectran.core.context.locale.LocaleChangeInterceptor"/>
+	<bean id="localeChangeInterceptor" class="com.aspectran.core.context.i18n.LocaleChangeInterceptor"/>
 
 	<!-- JSP를 View로 사용하기 위해 JSP View Dispatcher를 정의합니다. -->
 	<bean id="jspViewDispatcher" class="com.aspectran.web.support.view.JspViewDispatcher">
