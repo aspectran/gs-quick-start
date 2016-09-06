@@ -77,7 +77,7 @@
 		</description>
 		<joinpoint type="translet">
 			pointcut: {
-                +: "/ga-quick-start/*@sample.SimplestAction^helloWorld"
+                +: /ga-quick-start/*@sample.SimplestAction^helloWorld
 			}
 		</joinpoint>
 		<advice bean="simplestAdvice">
