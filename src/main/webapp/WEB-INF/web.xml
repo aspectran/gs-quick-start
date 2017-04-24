@@ -20,7 +20,7 @@
 				hybridLoad: false
 				autoReload: {
 					reloadMethod: hard
-					observationInterval: 5
+					scanIntervalSeconds: 5
 					startup: false
 				}
 				profiles: {
