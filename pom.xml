@@ -2,10 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.aspectran</groupId>
-    <artifactId>ga-quick-start</artifactId>
+    <artifactId>gs-quick-start</artifactId>
     <packaging>war</packaging>
     <version>0.1.0-SNAPSHOT</version>
-    <url>https://github.com/aspectran-guides/ga-quick-start.git</url>
+    <url>https://github.com/aspectran/gs-quick-start.git</url>
     <contributors>
         <contributor>
             <name>Juho Jeong</name>
@@ -70,7 +70,7 @@
                 <configuration>
                     <url>http://backend.aspectran.com/manager/text</url>
                     <server>backend-tomcat-server</server>
-                    <path>/ga-quick-start</path>
+                    <path>/gs-quick-start</path>
                 </configuration>
             </plugin>
         </plugins>
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>com.aspectran</groupId>
             <artifactId>aspectran</artifactId>
-            <version>4.0.0</version>
+            <version>4.1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.javassist</groupId>

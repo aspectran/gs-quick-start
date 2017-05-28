@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-3.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 4.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-4.dtd">
 
 <aspectran>
 	
@@ -12,7 +12,7 @@
 	<!-- 기본 설정 -->
 	<settings>
 		<!-- Transelt Name의 패턴을 정의합니다.  -->
-		<setting name="transletNamePattern" value="/ga-quick-start/*"/>
+		<setting name="transletNamePattern" value="/gs-quick-start/*"/>
 	</settings>
 
 	<!-- 다국어 처리를 위한 메시지 Bean을 정의합니다.  -->
@@ -77,7 +77,7 @@
 		</description>
 		<joinpoint type="translet">
 			pointcut: {
-                +: /ga-quick-start/*@sample.SimplestAction^helloWorld
+                +: /gs-quick-start/*@sample.SimplestAction^helloWorld
 			}
 		</joinpoint>
 		<advice bean="simplestAdvice">
@@ -90,8 +90,8 @@
 		</advice>
 	</aspect>
 
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex1.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex2.xml"/>
-	<import file="/WEB-INF/aspectran/config/quick-start-guide-ex3.xml"/>
+	<append file="/WEB-INF/aspectran/config/quick-start-guide-ex1.xml"/>
+	<append file="/WEB-INF/aspectran/config/quick-start-guide-ex2.xml"/>
+	<append file="/WEB-INF/aspectran/config/quick-start-guide-ex3.xml"/>
 
 </aspectran>

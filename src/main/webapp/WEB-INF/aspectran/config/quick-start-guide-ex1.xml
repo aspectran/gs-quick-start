@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-3.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 4.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-4.dtd">
 
 <aspectran>
 	
@@ -16,7 +16,7 @@
 	<translet name="ex1/helloWorld">
 		<description>
 			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
-			요청 URI가 "/ga-quick-start/direct/helloWorld"이면
+			요청 URI가 "/gs-quick-start/ex1/helloWorld"이면
 			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 가공해서 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">

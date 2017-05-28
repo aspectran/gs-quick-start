@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 2.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-3.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 4.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-4.dtd">
 
 <aspectran>
 	
@@ -14,7 +14,7 @@
 	<translet name="ex3/${targetName}" method="ALL">
 		<description>
             JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
-            요청 URI가 "/ga-quick-start/step3/helloWorld"이면
+            요청 URI가 "/gs-quick-start/ex3/helloWorld"이면
             "/WEB-INF/jsp/helloWorld.jsp" 파일로 포워딩 합니다.
             "Hello, World!" 문자열은 Request Attributes에 담아서 보내고,
             JSP에서는 "sample.message" 키로 값을 참조해서 화면에 출력하는 것이 특징입니다.
