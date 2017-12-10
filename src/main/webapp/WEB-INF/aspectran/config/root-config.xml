@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 5.0//EN"
+                           "http://aspectran.github.io/dtd/aspectran-5.dtd">
+
+<aspectran>
+
+    <description>
+        Aspectran Configuration for Quick Start Guide.
+        This is the first configuration file that contains common settings.
+    </description>
+
+    <!-- Default settings -->
+    <settings>
+        <!-- Defines the name pattern of the translets.  -->
+        <setting name="transletNamePattern" value="/gs-quick-start/*"/>
+    </settings>
+
+    <bean id="messageSource" class="com.aspectran.core.support.i18n.message.ResourceBundleMessageSource">
+        <description>
+            Defines a bean for multilingual processing.
+        </description>
+        <properties>
+            <item name="basename">locale.messages</item>
+        </properties>
+    </bean>
+
+    <bean id="localeResolver" class="com.aspectran.core.support.i18n.locale.SessionLocaleResolver">
+        <description>
+            Use the session to determine the locale.
+        </description>
+        <properties>
+            <item name="defaultLocale" value="en" />
+        </properties>
+    </bean>
+
+    <bean id="localeChangeInterceptor" class="com.aspectran.core.support.i18n.locale.LocaleChangeInterceptor">
+        <description>
+            Defines an interceptor bean for changing the locale.
+        </description>
+    </bean>
+
+    <bean id="jspViewDispatcher" class="com.aspectran.web.support.view.JspViewDispatcher">
+        <description>
+            Define the JSP View Dispatcher to use the JSP as the View.
+        </description>
+        <properties>
+            <item name="prefix" value="/WEB-INF/jsp/"/>
+            <item name="suffix" value=".jsp"/>
+        </properties>
+    </bean>
+
+    <bean id="sampleAdvice" class="sample.SampleAdvice">
+        <description>
+            Defines an Advice bean that has a method called before and after executing the helloWorld Method.
+        </description>
+    </bean>
+
+    <bean id="*" scan="sample.**.*Action">
+        <description>
+            Find and register all Action Beans.
+        </description>
+    </bean>
+
+    <aspect id="transletSettings">
+        <description>
+            Specifies the default settings to apply to all requests.
+        </description>
+        <joinpoint target="translet"/>
+        <settings>
+            <setting name="characterEncoding" value="utf-8"/>
+            <setting name="localeResolver" value="localeResolver"/>
+            <setting name="localeChangeInterceptor" value="localeChangeInterceptor"/>
+            <setting name="contentEncoding" value="gzip"/>
+            <setting name="viewDispatcher" value="jspViewDispatcher"/>
+        </settings>
+    </aspect>
+
+    <aspect id="sampleAspect">
+        <description>
+            "Hello World"만 출력하기에는 심심한 면이 없지 않아서,
+            내부적으로 특정 Method를 실행하는 기능을 주입시켜 보겠습니다.
+            요청 URI가 "/ga-quick-start/"로 시작하고,
+            simplestAction Bean의 helloWorld Method를 실행하는 Translet이 발견되면,
+            해당 Translet의 실행 전에는 simplestAdvice Bean의 welcome Method를 호출하고,
+            해당 Translet의 실행 후에는 simplestAdvice Bean의 goodbye Method를 호출합니다.
+        </description>
+        <joinpoint target="translet">
+            pointcut: {
+                +: /gs-quick-start/*/helloWorld@sample.SampleAction^helloWorld
+            }
+        </joinpoint>
+        <advice bean="sampleAdvice">
+            <before>
+                <action method="welcome"/>
+            </before>
+            <after>
+                <action method="goodbye"/>
+            </after>
+        </advice>
+    </aspect>
+
+    <!-- 각각 다른 방식으로 Hello World 문장을 출력하는 예제 Tranlset을 포함하는 3개의 설정 파일을 추가합니다. -->
+	<append file="/WEB-INF/aspectran/config/quick-start-guide-ex1.xml"/>
+    <append file="/WEB-INF/aspectran/config/quick-start-guide-ex2.xml"/>
+    <append file="/WEB-INF/aspectran/config/quick-start-guide-ex3.xml"/>
+
+</aspectran>

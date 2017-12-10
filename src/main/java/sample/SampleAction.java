@@ -4,9 +4,9 @@ import com.aspectran.core.activity.Translet;
 import com.aspectran.core.util.logging.Log;
 import com.aspectran.core.util.logging.LogFactory;
 
-public class SimplestAction {
+public class SampleAction {
     
-    private final Log log = LogFactory.getLog(SimplestAction.class);
+    private final Log log = LogFactory.getLog(SampleAction.class);
 
     public String helloWorld(Translet translet) {
         String msg = translet.getMessage("hello", new Object[] { "Aspectran" });

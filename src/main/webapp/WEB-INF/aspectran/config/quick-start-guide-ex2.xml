@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 4.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-4.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 5.0//EN"
+		                   "http://aspectran.github.io/dtd/aspectran-5.dtd">
 
 <aspectran>
 	
 	<description>
-		=== Quick Start Guide - Step 2 ===
+		=== Quick Start Guide - Example 2 ===
 		Quick Start Guide를 위한 Aspectran Configuration의 일부로써,
 		"Hello, World!" 문자열을 출력하는 설정 내용을 담고 있습니다.
 		Aspectran은 AOP 방식의 프로그래밍을 지원합니다.
@@ -19,10 +19,10 @@
 			요청 URI가 "/gs-quick-start/ex2/helloWorld"이면
 			simplestAction Bean에서 helloWorld Method를 실행합니다.
 			helloWorld Method가 반환하는 "Hello, World!" 문자열을
-			텍스트 형식의 컨텐츠로 가공해서 응답합니다.
+			텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
-			<action id="hello" bean="sample.SimplestAction" method="helloWorld"/>
+			<action id="hello" bean="sample.SampleAction" method="helloWorld"/>
 		</transform>
 	</translet>
 

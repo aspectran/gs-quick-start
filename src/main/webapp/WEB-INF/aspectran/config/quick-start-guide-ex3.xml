@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 4.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-4.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran Configuration 5.0//EN"
+		                   "http://aspectran.github.io/dtd/aspectran-5.dtd">
 
 <aspectran>
 	
 	<description>
-		=== Quick Start Guide - Step 3 ===
+		=== Quick Start Guide - Example 3 ===
 		Quick Start Guide를 위한 Aspectran Configuration의 일부로써,
 		"Hello, World!" 문자열을 출력하는 설정 내용을 담고 있습니다.
 		JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력합니다.
 	</description>
 
-	<translet name="ex3/${targetName}" method="ALL">
+	<translet name="ex3/helloWorld">
 		<description>
             JSP View Dispatcher를 이용해서 "Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
             요청 URI가 "/gs-quick-start/ex3/helloWorld"이면
@@ -24,7 +24,7 @@
 				<item name="message">Hello, World!</item>
 			</attributes>
 		</echo>
-		<dispatch name="${targetName}"/>
+		<dispatch name="helloWorld"/>
 	</translet>
 
 </aspectran>
