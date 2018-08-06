@@ -20,7 +20,7 @@
 			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform type="transform/text" contentType="text/plain">
-			<template>Hello, World!===</template>
+			<template>Hello, World!</template>
 		</transform>
 	</translet>
 

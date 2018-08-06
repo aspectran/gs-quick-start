@@ -4,7 +4,7 @@
     <groupId>com.aspectran</groupId>
     <artifactId>gs-quick-start</artifactId>
     <packaging>war</packaging>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <url>https://github.com/aspectran/gs-quick-start.git</url>
     <contributors>
         <contributor>
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>com.aspectran</groupId>
             <artifactId>aspectran-web</artifactId>
-            <version>5.1.0-SNAPSHOT</version>
+            <version>5.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
