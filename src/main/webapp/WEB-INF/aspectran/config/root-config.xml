@@ -70,7 +70,6 @@
             <setting name="characterEncoding" value="utf-8"/>
             <setting name="localeResolver" value="localeResolver"/>
             <setting name="localeChangeInterceptor" value="localeChangeInterceptor"/>
-            <setting name="contentEncoding" value="gzip"/>
             <setting name="viewDispatcher" value="jspViewDispatcher"/>
         </settings>
     </aspect>
