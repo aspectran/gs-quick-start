@@ -13,7 +13,16 @@
         </contributor>
     </contributors>
     <properties>
+        <main.basedir>${project.basedir}</main.basedir>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+        <maven.compiler.testSource>1.8</maven.compiler.testSource>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <aspectran.version>5.6.0</aspectran.version>
     </properties>
     <build>
         <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
@@ -22,8 +31,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
                     <optimize>true</optimize>
                     <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
                     <useIncrementalCompilation>false</useIncrementalCompilation>
@@ -79,7 +86,7 @@
         <dependency>
             <groupId>com.aspectran</groupId>
             <artifactId>aspectran-web</artifactId>
-            <version>5.2.1</version>
+            <version>${aspectran.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
