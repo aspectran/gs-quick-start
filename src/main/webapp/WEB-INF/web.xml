@@ -33,6 +33,10 @@
             }
             web: {
                 uriDecoding: utf-8
+                exposals: {
+                    +: /**
+                    -: /favicon.ico
+                }
             }
         </param-value>
     </context-param>
