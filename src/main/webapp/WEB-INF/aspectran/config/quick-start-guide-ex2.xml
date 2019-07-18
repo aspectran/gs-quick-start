@@ -20,9 +20,8 @@
 			helloWorld Method가 반환하는 "Hello, World!" 문자열을
 			텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
-		<transform type="transform/text" contentType="text/plain">
-			<action id="hello" bean="sample.SampleAction" method="helloWorld"/>
-		</transform>
+		<action id="hello" bean="sample.SampleAction" method="helloWorld"/>
+		<transform type="text" contentType="text/plain"/>
 	</translet>
 
 </aspectran>

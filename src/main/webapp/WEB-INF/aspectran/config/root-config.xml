@@ -8,10 +8,8 @@
         This is the first configuration file that contains common settings.
     </description>
 
-    <!-- Default settings -->
     <settings>
-        <!-- Defines the name pattern of the translets.  -->
-        <setting name="transletNamePattern" value="/gs-quick-start/*"/>
+        <setting name="transletNamePrefix" value="/gs-quick-start/"/>
     </settings>
 
     <bean id="messageSource" class="com.aspectran.core.support.i18n.message.ResourceBundleMessageSource">
@@ -89,10 +87,10 @@
         </joinpoint>
         <advice bean="sampleAdvice">
             <before>
-                <action method="welcome"/>
+                <invoke method="welcome"/>
             </before>
             <after>
-                <action method="goodbye"/>
+                <invoke method="goodbye"/>
             </after>
         </advice>
     </aspect>

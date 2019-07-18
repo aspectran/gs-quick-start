@@ -18,7 +18,7 @@
 			요청 URI가 "/gs-quick-start/ex1/helloWorld"이면
 			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
-		<transform type="transform/text" contentType="text/plain">
+		<transform type="text" contentType="text/plain">
 			<template>Hello, World!</template>
 		</transform>
 	</translet>
