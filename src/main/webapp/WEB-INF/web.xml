@@ -15,7 +15,6 @@
                 root: /WEB-INF/aspectran/config/root-config.xml
                 encoding: utf-8
                 resources: [
-                    /WEB-INF/aspectran/config
                 ]
                 autoReload: {
                     reloadMode: hard
