@@ -19,9 +19,7 @@
             JSP에서는 "sample.message" 키로 값을 참조해서 화면에 출력하는 것이 특징입니다.
         </description>
 		<echo id="hello">
-			<attributes>
-				<item name="message">Hello, World!</item>
-			</attributes>
+			<item name="message">Hello, World!</item>
 		</echo>
 		<dispatch name="helloWorld"/>
 	</translet>
