@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,5 +12,6 @@
     <li><a href="/gs-quick-start/ex2/helloWorld">/gs-quick-start/ex2/helloWorld</a></li>
     <li><a href="/gs-quick-start/ex3/helloWorld">/gs-quick-start/ex3/helloWorld</a></li>
 </ul>
+<p><%= com.aspectran.core.util.Aspectran.POWERED_BY_LINK %></p>
 </body>
 </html>
