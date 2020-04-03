@@ -12,13 +12,13 @@
         <param-name>aspectran:config</param-name>
         <param-value>
             context: {
-                root: /WEB-INF/aspectran/config/root-config.xml
+                root: /WEB-INF/aspectran/config/app-config.xml
                 encoding: utf-8
                 resources: [
                 ]
                 autoReload: {
                     scanIntervalSeconds: 5
-                    startup: false
+                    enabled: false
                 }
                 profiles: {
                 }
@@ -26,7 +26,7 @@
             scheduler: {
                 startDelaySeconds: 10
                 waitOnShutdown: true
-                startup: false
+                enabled: false
             }
             web: {
                 uriDecoding: utf-8
