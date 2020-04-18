@@ -1,17 +1,17 @@
 package sample;
 
 import com.aspectran.core.activity.Translet;
-import com.aspectran.core.util.logging.Log;
-import com.aspectran.core.util.logging.LogFactory;
+import com.aspectran.core.util.logging.Logger;
+import com.aspectran.core.util.logging.LoggerFactory;
 
 public class SampleAction {
     
-    private final Log log = LogFactory.getLog(SampleAction.class);
+    private final Logger logger = LoggerFactory.getLogger(SampleAction.class);
 
     public String helloWorld(Translet translet) {
         String msg = translet.getMessage("hello", new Object[] { "Aspectran" });
         
-        log.info(translet.getMessage("first.action.is", new Object[] { msg }));
+        logger.info(translet.getMessage("first.action.is", new Object[] { msg }));
 
         return msg;
     }
