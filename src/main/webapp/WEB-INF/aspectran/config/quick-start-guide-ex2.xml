@@ -21,7 +21,7 @@
 			텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<action id="hello" bean="sample.SampleAction" method="helloWorld"/>
-		<transform type="text" contentType="text/plain"/>
+		<transform format="text" contentType="text/plain"/>
 	</translet>
 
 </aspectran>
