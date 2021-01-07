@@ -52,7 +52,7 @@
         </description>
     </bean>
 
-    <bean id="*" scan="sample.**.*Action">
+    <bean id="*" scan="sample.**.*Activity">
         <description>
             Find and register all Action Beans.
         </description>
