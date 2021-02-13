@@ -33,7 +33,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aspectran.version>6.11.0</aspectran.version>
+        <aspectran.version>6.12.0-SNAPSHOT</aspectran.version>
     </properties>
     <build>
         <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
@@ -112,12 +112,6 @@
             <groupId>com.aspectran</groupId>
             <artifactId>aspectran-web</artifactId>
             <version>${aspectran.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>javax.servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
