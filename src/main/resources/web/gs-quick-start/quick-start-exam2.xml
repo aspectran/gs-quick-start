@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran 6.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-6.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran 7.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-7.dtd">
 <aspectran>
 
 	<description>
@@ -12,15 +12,19 @@
 		특정 Method를 실행하는 기능이 주입되도록 설정되어 있습니다.
 	</description>
 
-	<translet name="ex2/helloWorld">
+	<settings>
+		<setting name="transletNamePrefix" value="/gs-quick-start/quick-start-"/>
+	</settings>
+
+	<translet name="exam2/helloWorld">
 		<description>
 			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
-			요청 URI가 "/gs-quick-start/ex2/helloWorld"이면
+			요청 URI가 "/gs-quick-start/quick-start-exam2/helloWorld"이면
 			simplestAction Bean에서 helloWorld Method를 실행합니다.
 			helloWorld Method가 반환하는 "Hello, World!" 문자열을
 			텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
-		<action id="hello" bean="sample.SampleActivity" method="helloWorld"/>
+		<action id="hello" bean="quickStartActivity" method="helloWorld"/>
 		<transform format="text" contentType="text/plain"/>
 	</translet>
 

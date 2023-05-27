@@ -1,0 +1,32 @@
+context: {
+    rules: /WEB-INF/aspectran/config/app-context.xml
+    encoding: utf-8
+    resources: [
+        /WEB-INF/aspectran/lib/ext
+    ]
+    scan: [
+        example
+    ]
+    autoReload: {
+        reloadMode: hard
+        scanIntervalSeconds: 5
+        enabled: true
+    }
+    profiles: {
+        default: [
+            dev
+        ]
+    }
+}
+scheduler: {
+    startDelaySeconds: 10
+    waitOnShutdown: true
+    enabled: false
+}
+web: {
+    uriDecoding: utf-8
+    exposals: {
+        +: /**
+        -: /favicon.ico
+    }
+}

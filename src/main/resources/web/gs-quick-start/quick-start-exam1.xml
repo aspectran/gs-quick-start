@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran 6.0//EN"
-		"http://aspectran.github.io/dtd/aspectran-6.dtd">
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran 7.0//EN"
+		"http://aspectran.github.io/dtd/aspectran-7.dtd">
 <aspectran>
 
 	<description>
@@ -12,10 +12,14 @@
 		심지어 자바 소스코드를 작성하지도 않았습니다.
 	</description>
 
-	<translet name="ex1/helloWorld">
+	<settings>
+		<setting name="transletNamePrefix" value="/gs-quick-start/quick-start-"/>
+	</settings>
+
+	<translet name="exam1/helloWorld">
 		<description>
 			"Hello, World!" 문자열을 출력하는 Translet을 정의합니다.
-			요청 URI가 "/gs-quick-start/ex1/helloWorld"이면
+			요청 URI가 "/gs-quick-start/quick-start-exam1/helloWorld"이면
 			"Hello, World!" 문자열을 텍스트 형식의 컨텐츠로 응답합니다.
 		</description>
 		<transform format="text" contentType="text/plain">

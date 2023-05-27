@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectran PUBLIC "-//ASPECTRAN//DTD Aspectran 7.0//EN"
+        "http://aspectran.github.io/dtd/aspectran-7.dtd">
+<aspectran>
+
+    <description>
+        An Aspectran configuration for the Web Environment.
+        Note that names of translets that match the request URI always start with a forward slash (/).
+    </description>
+
+    <bean id="messageSource" class="com.aspectran.core.support.i18n.message.ResourceBundleMessageSource">
+        <description>
+            Defines a bean for multilingual processing.
+        </description>
+        <properties>
+            <item name="basename">locale.messages</item>
+        </properties>
+    </bean>
+
+    <bean id="localeResolver" class="com.aspectran.core.support.i18n.locale.SessionLocaleResolver">
+        <description>
+            Use the session to determine the locale.
+        </description>
+        <properties>
+            <item name="defaultLocale" value="en" />
+        </properties>
+    </bean>
+
+    <bean id="localeChangeInterceptor" class="com.aspectran.core.support.i18n.locale.LocaleChangeInterceptor">
+        <description>
+            Defines an interceptor bean for changing the locale.
+        </description>
+    </bean>
+
+    <bean id="jspViewDispatcher" class="com.aspectran.web.support.view.JspViewDispatcher">
+        <description>
+            Register a JSP View Dispatcher.
+        </description>
+        <properties>
+            <item name="prefix">/WEB-INF/jsp/</item>
+            <item name="suffix">.jsp</item>
+        </properties>
+    </bean>
+
+    <aspect id="webTransletSettings">
+        <description>
+            This aspect is for injecting default settings into translets running in the web environment.
+        </description>
+        <joinpoint>
+            pointcut: {
+                +: /**
+            }
+        </joinpoint>
+        <settings>
+            <setting name="characterEncoding" value="utf-8"/>
+            <setting name="localeResolver" value="localeResolver"/>
+            <setting name="localeChangeInterceptor" value="localeChangeInterceptor"/>
+            <setting name="viewDispatcher" value="jspViewDispatcher"/>
+        </settings>
+    </aspect>
+
+    <!-- 각각 다른 방식으로 Hello World 문장을 출력하기 위한 예제 Tranlset을 포함하는 3개의 구성 규칙을 추가합니다. -->
+    <append resource="web/gs-quick-start/quick-start-exam1.xml"/>
+    <append resource="web/gs-quick-start/quick-start-exam2.xml"/>
+    <append resource="web/gs-quick-start/quick-start-exam3.xml"/>
+
+</aspectran>
