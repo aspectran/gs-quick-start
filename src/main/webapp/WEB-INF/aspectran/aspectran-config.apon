@@ -1,5 +1,5 @@
 context: {
-    rules: /WEB-INF/aspectran/config/app-context.xml
+    rules: /WEB-INF/aspectran/app-context.xml
     encoding: utf-8
     resources: [
         /WEB-INF/lib/ext
