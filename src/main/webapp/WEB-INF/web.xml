@@ -10,10 +10,10 @@
         of building web applications with Aspectran driven by the servlet.
     </description>
 
-<!--    <context-param>-->
-<!--        <param-name>aspectran:config</param-name>-->
-<!--        <param-value>file:/WEB-INF/aspectran/aspectran-config.apon</param-value>-->
-<!--    </context-param>-->
+    <context-param>
+        <param-name>aspectran:config</param-name>
+        <param-value>file:/WEB-INF/aspectran/aspectran-config.apon</param-value>
+    </context-param>
     <listener>
         <listener-class>com.aspectran.web.servlet.listener.WebServiceListener</listener-class>
     </listener>
@@ -21,10 +21,10 @@
     <servlet>
         <servlet-name>web-activity-servlet</servlet-name>
         <servlet-class>com.aspectran.web.servlet.WebActivityServlet</servlet-class>
-        <init-param>
-            <param-name>aspectran:config</param-name>
-            <param-value>file:/WEB-INF/aspectran/aspectran-config.apon</param-value>
-        </init-param>
+<!--        <init-param>-->
+<!--            <param-name>aspectran:config</param-name>-->
+<!--            <param-value>file:/WEB-INF/aspectran/aspectran-config.apon</param-value>-->
+<!--        </init-param>-->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
