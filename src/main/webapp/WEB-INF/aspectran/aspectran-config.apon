@@ -25,7 +25,7 @@ scheduler: {
 }
 web: {
     uriDecoding: utf-8
-    acceptables: {
+    acceptable: {
         +: /**
         -: /favicon.ico
     }
