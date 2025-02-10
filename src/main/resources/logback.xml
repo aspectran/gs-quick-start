@@ -2,8 +2,9 @@
 <configuration>
 
     <include resource="logback-default.xml"/>
+    <include resource="logback-scheduler.xml"/>
     <include resource="logback-console.xml"/>
 
-    <logger name="example" level="info"/>
+    <logger name="app.example" level="debug"/>
 
 </configuration>

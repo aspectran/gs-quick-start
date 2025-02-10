@@ -42,10 +42,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aspectran.version>8.2.0</aspectran.version>
+        <aspectran.version>8.3.2</aspectran.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.aspectran</groupId>
+            <artifactId>aspectran-with-logback</artifactId>
+            <version>${aspectran.version}</version>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>com.aspectran</groupId>
             <artifactId>aspectran-web</artifactId>
@@ -56,29 +62,6 @@
             <artifactId>jakarta.servlet-api</artifactId>
             <version>6.0.0</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>2.0.16</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>2.0.16</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.5.12</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
@@ -141,8 +124,11 @@
                         <fileset>
                             <directory>src/main/webapp/WEB-INF/lib</directory>
                             <includes>
-                                <include>*.jar</include>
+                                <include>**</include>
                             </includes>
+                            <excludes>
+                                <exclude>.gitignore</exclude>
+                            </excludes>
                         </fileset>
                     </filesets>
                 </configuration>

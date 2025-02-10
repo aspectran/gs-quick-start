@@ -12,6 +12,6 @@
     <li><a href="/gs-quick-start/quick-start-exam2/helloWorld">/gs-quick-start/quick-start-exam2/helloWorld</a></li>
     <li><a href="/gs-quick-start/quick-start-exam3/helloWorld">/gs-quick-start/quick-start-exam3/helloWorld</a></li>
 </ul>
-<p><%= com.aspectran.core.Aspectran.POWERED_BY_LINK %></p>
+<p><%= com.aspectran.core.AboutMe.POWERED_BY_LINK %></p>
 </body>
 </html>

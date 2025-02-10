@@ -60,8 +60,8 @@
     </aspect>
 
     <!-- 각각 다른 방식으로 Hello World 문장을 출력하기 위한 예제 Tranlset을 포함하는 3개의 구성 규칙을 추가합니다. -->
-    <append resource="web/gs-quick-start/quick-start-exam1.xml"/>
-    <append resource="web/gs-quick-start/quick-start-exam2.xml"/>
-    <append resource="web/gs-quick-start/quick-start-exam3.xml"/>
+    <append resource="aspectran/web/gs-quick-start/quick-start-exam1.xml"/>
+    <append resource="aspectran/web/gs-quick-start/quick-start-exam2.xml"/>
+    <append resource="aspectran/web/gs-quick-start/quick-start-exam3.xml"/>
 
 </aspectran>

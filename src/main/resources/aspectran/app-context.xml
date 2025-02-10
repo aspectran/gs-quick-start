@@ -20,6 +20,6 @@
         </settings>
     </aspect>
 
-	<append resource="web/web-config.xml"/>
+	<append resource="aspectran/web/web-config.xml"/>
 
 </aspectran>

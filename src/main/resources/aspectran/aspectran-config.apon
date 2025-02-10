@@ -1,11 +1,12 @@
 context: {
-    rules: /WEB-INF/aspectran/app-context.xml
+    name: root
+    rules: classpath:aspectran/app-context.xml
     encoding: utf-8
     resources: [
         /WEB-INF/lib/ext
     ]
     scan: [
-        example
+        app.example
     ]
     autoReload: {
         reloadMode: hard

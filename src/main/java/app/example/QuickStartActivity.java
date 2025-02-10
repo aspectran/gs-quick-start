@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package example;
+package app.example;
 
 import com.aspectran.core.activity.Translet;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
+import com.aspectran.utils.annotation.jsr305.NonNull;
 import com.aspectran.utils.logging.Logger;
 import com.aspectran.utils.logging.LoggerFactory;
 
@@ -27,7 +28,7 @@ public class QuickStartActivity {
     
     private final Logger logger = LoggerFactory.getLogger(QuickStartActivity.class);
 
-    public String helloWorld(Translet translet) {
+    public String helloWorld(@NonNull Translet translet) {
         String msg = translet.getMessage("hello", new Object[] { "Aspectran" });
         
         logger.info(translet.getMessage("first_action_is", new Object[] { msg }));
