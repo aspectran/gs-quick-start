@@ -22,9 +22,9 @@ import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Description;
 import com.aspectran.core.component.bean.annotation.Joinpoint;
 import com.aspectran.utils.annotation.jsr305.NonNull;
-import com.aspectran.utils.logging.Logger;
-import com.aspectran.utils.logging.LoggerFactory;
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 @Bean("quickStartAdvice")
