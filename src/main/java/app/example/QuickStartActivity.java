@@ -16,6 +16,7 @@
 package app.example;
 
 import com.aspectran.core.activity.Translet;
+import com.aspectran.core.component.bean.annotation.Advisable;
 import com.aspectran.core.component.bean.annotation.Bean;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.utils.annotation.jsr305.NonNull;
@@ -28,6 +29,7 @@ public class QuickStartActivity {
     
     private final Logger logger = LoggerFactory.getLogger(QuickStartActivity.class);
 
+    @Advisable
     public String helloWorld(@NonNull Translet translet) {
         String msg = translet.getMessage("hello", new Object[] { "Aspectran" });
         

@@ -16,8 +16,10 @@
 package app.example;
 
 import com.aspectran.core.activity.Translet;
+import com.aspectran.core.component.bean.annotation.After;
 import com.aspectran.core.component.bean.annotation.Aspect;
 import com.aspectran.core.component.bean.annotation.Bean;
+import com.aspectran.core.component.bean.annotation.Before;
 import com.aspectran.core.component.bean.annotation.Component;
 import com.aspectran.core.component.bean.annotation.Description;
 import com.aspectran.core.component.bean.annotation.Joinpoint;
@@ -31,7 +33,7 @@ import org.slf4j.LoggerFactory;
 @Aspect("quickStartAspect")
 @Joinpoint(
         pointcut = {
-                "+: /gs-quick-start/*/helloWorld@quickStartActivity^helloWorld"
+                "+: /gs-quick-start/quick-start-exam?/helloWorld"
         }
 )
 @Description(
@@ -43,6 +45,7 @@ public class QuickStartAdvice {
     
     private final Logger logger = LoggerFactory.getLogger(QuickStartAdvice.class);
 
+    @Before
     public String welcome(@NonNull Translet translet) {
         HttpServletRequest req = translet.getRequestAdaptee();
         String ip = req.getRemoteAddr();
@@ -53,6 +56,7 @@ public class QuickStartAdvice {
         return msg;
     }
     
+    @After
     public String goodbye(@NonNull Translet translet) {
         logger.info("activityData {}", translet.getActivityData());
 
