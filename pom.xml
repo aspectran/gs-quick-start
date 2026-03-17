@@ -74,7 +74,7 @@
                 <version>3.14.1</version>
                 <configuration>
                     <compilerArgs>
-                        <arg>-Xlint:-try,-path,-options</arg>
+                        <arg>-Xlint:-try,-path</arg>
                     </compilerArgs>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
