@@ -1,6 +1,6 @@
 context: {
     name: root
-    rules: classpath:aspectran/app-context.xml
+    rules: classpath:aspectran/aspectran-rules.xml
     encoding: utf-8
     resources: [
         /WEB-INF/lib/ext
